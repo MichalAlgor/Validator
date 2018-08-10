@@ -12,7 +12,7 @@ public struct AndCompositeValidator: Validator {
 
 	private let validators: [Validator]
 
-	init(validators: Validator...) {
+	public init(validators: Validator...) {
 		self.validators = validators
 	}
 

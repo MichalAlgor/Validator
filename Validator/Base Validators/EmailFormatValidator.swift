@@ -9,15 +9,15 @@
 import Foundation
 
 public struct EmailFormatValidator: Validator {
+
 	public func validate(_ value: String) -> ValidatorResult {
 //		let emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
 		let emailRegex = "\\A[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\z"
 		let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
 
-		if emailTest.evaluate(with: value) {
-			return .valid
-		} else {
+		guard emailTest.evaluate(with: value) else {
 			return .invalid(errors: [EmailValidatorError.invalidFormat])
 		}
+		return .valid
 	}
 }

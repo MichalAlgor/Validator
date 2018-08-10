@@ -80,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52F8306211E12FC00895AD1 /* Composite Validators */ = {
+			isa = PBXGroup;
+			children = (
+				B56D1271211B179100F8608A /* AndCompositeValidator.swift */,
+				B5F5EB2B211B197C00ED7F08 /* OrCompositeValidator.swift */,
+			);
+			path = "Composite Validators";
+			sourceTree = "<group>";
+		};
 		B56D123A211B162C00F8608A = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +110,13 @@
 		B56D1246211B162C00F8608A /* Validator */ = {
 			isa = PBXGroup;
 			children = (
-				B56D1268211B16F400F8608A /* Base Validators */,
-				B56D1262211B167800F8608A /* Validators */,
 				B56D1247211B162C00F8608A /* Validator.h */,
 				B56D1248211B162C00F8608A /* Info.plist */,
+				B52F8306211E12FC00895AD1 /* Composite Validators */,
+				B56D1268211B16F400F8608A /* Base Validators */,
+				B56D1262211B167800F8608A /* Validators */,
 				B56D125E211B165000F8608A /* ValidatorResult.swift */,
 				B56D1260211B166500F8608A /* ValidatorProtocol.swift */,
-				B56D1271211B179100F8608A /* AndCompositeValidator.swift */,
-				B5F5EB2B211B197C00ED7F08 /* OrCompositeValidator.swift */,
 			);
 			path = Validator;
 			sourceTree = "<group>";

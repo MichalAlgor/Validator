@@ -38,7 +38,7 @@ class EmptyStringValidatorTests: XCTestCase {
 	func testInvalidString() {
 		let validator = EmptyStringValidator(invalidError: EmptyStringError.emptyString)
 		let result = validator.validate("")
-		XCTAssertTrue(result != ValidatorResult.valid, "Validation result should be invalid")
+		XCTAssertTrue(result == ValidatorResult.invalid(errors: []), "Validation result should be invalid")
 	}
 
 	func testInvalidStringReturnProperError() {

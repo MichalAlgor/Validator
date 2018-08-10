@@ -12,11 +12,11 @@ public struct PasswordLengthValidator: Validator {
 
 	private let minimumLength: Int
 
-	init() {
+	public init() {
 		self.init(minimumLength: 8)
 	}
 
-	init(minimumLength: Int) {
+	public init(minimumLength: Int) {
 		self.minimumLength = minimumLength
 	}
 

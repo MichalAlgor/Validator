@@ -15,10 +15,9 @@ public struct UppercaseLetterValidator: Validator {
 
 		let uppercaseLetterTest = NSPredicate(format: "SELF MATCHES %@", uppercaseLetterRegex)
 
-		if uppercaseLetterTest.evaluate(with: value) {
-			return .valid
-		} else {
+		guard uppercaseLetterTest.evaluate(with: value) else {
 			return .invalid(errors: [PasswordValidatorError.noUppercaseLetter])
 		}
+		return .valid
 	}
 }
