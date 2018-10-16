@@ -10,6 +10,8 @@ import Foundation
 
 public struct UppercaseLetterValidator: Validator {
 
+	public init() { }
+
 	public func validate(_ value: String) -> ValidatorResult {
 		let uppercaseLetterRegex = ".*[A-Z]+.*"
 
