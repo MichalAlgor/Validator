@@ -1,5 +1,24 @@
 language: objective-c
 osx_image: xcode10
-xcode_project: Validator.xcodeproj # path to your xcodeproj folder
+xcode_project: Validator.xcodeproj
 xcode_scheme: Validator
 xcode_destination: platform=iOS Simulator,OS=12.0,name=iPad Pro (9.7-inch)
+env:
+  global:
+  - FRAMEWORK_NAME=Validator
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+before_script: 
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: WCP5oAapQUfOdu1onEBjRMNGz8Rai1HU87HedgxNNeUFm6bye9gN5M0RIha74Dgy/DtfuOe1GJ9EgBNpEr4cGMp8rbqfeZW8ZphWfU2Od3Dnz4Riq48hcwVGUasDiPdySE1xHlY/+HAjgQncvYzTNlo731gygoK7fDRp7xEV+nUZfQM6oa4Tj49JSFK0hJOtyk891L7dTAOVjKqLqEG1C6CQ3M/zHQJgBLx6knebChmTLjvGvBXLOKVbp/jnK7fIr2K4ejt4F2iZe3iqh/p6fjztm5yTgZLrcggslXkBAcQ7aRiuHtOmBMf6XkW/EPJLntvhqLjAPnvapxOI569ug7ueW/E/gukjySQN/zf+2MdpVVO+Ec5gbFvwQ6Y7l4hrtyRFTEYsaHMXpSBAqm/jaO03QssKy8O5Fy7CZEah5Zmxvae5lIvUcmWeeEWLg1hwoyTGj2/PTsFPLDzX1DB9ls6YqxuN+a77+AsMSe5DE6fef3Nh1S5z0WI1n28TGtTQjoK47AcYdlp5+n2UX6EFa6MGf6xKhQ6h5o6jLFwLgy/iIViHUdxkzdwg9PCOcls4S+vkuL9BrTrih1uM83LGFtUjXmSzSfi1rtYzByc8k8UxTpOK4POHlTGaxfZWv/M850Tys4K7IHqvocYAJPjYBrmxgOG9YIbTZKDfHmVWOsI=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: MichalAlgor/Validator
+    tags: true
