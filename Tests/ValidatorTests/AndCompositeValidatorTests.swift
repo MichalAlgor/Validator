@@ -11,16 +11,6 @@ import XCTest
 
 class AndCompositeValidatorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
 	func testValidValidation() {
 		let emptyStringValidator = EmptyStringValidator(invalidError: EmptyStringError.emptyString)
 		let lengthValidator = PasswordLengthValidator(minimumLength: 5)
@@ -104,4 +94,11 @@ class AndCompositeValidatorTests: XCTestCase {
 		}
 	}
 
+	static var allTests = [
+		("testValidValidation", testValidValidation),
+		("testValidOperatorValidation", testValidOperatorValidation),
+		("testInvalidValidation", testInvalidValidation),
+		("testInvalidValidationWithOperator", testInvalidValidationWithOperator),
+		("testMultipleErrors", testMultipleErrors)
+	]
 }
