@@ -19,16 +19,6 @@ enum NotEmptyStringError: Error {
 
 class EmptyStringValidatorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
     func testValidString() {
 		let validator = EmptyStringValidator(invalidError: EmptyStringError.emptyString)
 		let result = validator.validate("Valid String")
@@ -60,5 +50,11 @@ class EmptyStringValidatorTests: XCTestCase {
 			XCTFail("Should have invalid result")
 		}
 	}
+
+	static var allTests = [
+		("testValidString", testValidString),
+		("testInvalidString", testInvalidString),
+		("testInvalidStringReturnProperError", testInvalidStringReturnProperError),
+	]
 
 }

@@ -11,16 +11,6 @@ import XCTest
 
 class EmailFormatValidatorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
     func testProperEmailFormat() {
 		let validator = EmailFormatValidator()
 		let result = validator.validate("valid@validator.com")
@@ -62,4 +52,14 @@ class EmailFormatValidatorTests: XCTestCase {
 		let result = validator.validate("validator.com")
 		XCTAssertTrue(result != ValidatorResult.valid, "Validation result should be invalid")
 	}
+
+	static var allTests = [
+		("testProperEmailFormat", testProperEmailFormat),
+		("testMissingTopLevelDomain", testMissingTopLevelDomain),
+		("testMissingTopLevelDomainWithDot", testMissingTopLevelDomainWithDot),
+		("testMissingDomain", testMissingDomain),
+		("testMissingAt", testMissingAt),
+		("testMissingLocalPart", testMissingLocalPart),
+		("testMissingLocalPartAndAt", testMissingLocalPartAndAt),
+	]
 }

@@ -11,16 +11,6 @@ import XCTest
 
 class PasswordLengthValidatorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
 	func testValidDefaultPasswordLength() {
 		let validator = PasswordLengthValidator()
 		let result = validator.validate("12345678")
@@ -63,4 +53,12 @@ class PasswordLengthValidatorTests: XCTestCase {
 			XCTFail("Should have invalid result")
 		}
 	}
+
+	static var allTests = [
+		("testValidDefaultPasswordLength", testValidDefaultPasswordLength),
+		("testInvalidDefaultPasswordLength", testInvalidDefaultPasswordLength),
+		("testValidPasswordLength", testValidPasswordLength),
+		("testInvalidPasswordLength", testInvalidPasswordLength),
+		("testInvalidPasswordLengthError", testInvalidPasswordLengthError),
+	]
 }

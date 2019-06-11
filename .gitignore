@@ -1,3 +1,5 @@
-Validator.xcodeproj/xcuserdata
-Validator.xcodeproj/project.xcworkspace/xcuserdata
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
 Carthage
